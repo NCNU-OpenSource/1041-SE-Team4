@@ -12,10 +12,10 @@ if ($results=mysqli_query($conn,$sql) ) {
 	$oven4ava=$rs['oven4'];
 	
 	}
-	echo "<script>alertoven();</script> ";
-if($oven4ava==1){
 	
-	echo "<script>alertoven();</script> ";
+if($oven4ava==1){
+	$_SESSION['ovenup']=1;
+	
 }
 
 else if($oven3ava==1){
@@ -25,6 +25,9 @@ else if($oven3ava==1){
 	$money-=$ovenprice;
 	$sql = "update stock set  oven4 = '$ava',money='$money'  where userid=" . $id;
 	mysqli_query($conn,$sql) ;
+	}
+	else{
+		$_SESSION['money']=1;
 	}
 	
 }
@@ -37,6 +40,9 @@ else if($oven2ava==1){
 	$sql = "update stock set  oven3 = '$ava',money='$money'  where userid=" . $id;
 	mysqli_query($conn,$sql) ;
 	}
+	else{
+		$_SESSION['money']=1;
+	}
 }
 else if($oven1ava==1){
 	$ovenprice=1000;
@@ -45,6 +51,9 @@ else if($oven1ava==1){
 	$money-=$ovenprice;
 	$sql = "update stock set  oven2 = '$ava',money='$money'  where userid=" . $id;
 	mysqli_query($conn,$sql) ;
+	}
+	else{
+		$_SESSION['money']=1;
 	}
 }
 

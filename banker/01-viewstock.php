@@ -4,7 +4,9 @@ $id=1;
 $status=0;
 $userid=(int)$_SESSION['uid'];
 
-	
+$_SESSION['viewstock']=1;
+$_SESSION['shop']=0;
+$_SESSION['question']=0;
 
 
 

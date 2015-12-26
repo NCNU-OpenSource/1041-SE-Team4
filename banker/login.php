@@ -32,6 +32,12 @@ else
 				$_SESSION['oven[2]']=0;
 				$_SESSION['oven[3]']=0;
 				$_SESSION['oven[4]']=0;
+				$_SESSION['viewstock']=0;
+				$_SESSION['shop']=0;
+				$_SESSION['question']=0;
+				$_SESSION['money']=0;
+				$_SESSION['bread']=0;
+				$_SESSION['ovenup']=0;
 				$_SESSION['lv'] = $row['lv'];
 				
 				header("Location: load.php");

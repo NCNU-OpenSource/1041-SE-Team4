@@ -25,6 +25,14 @@ function alerto() {
   alert("烤箱已滿！!");
 }
 
+function alertmoney() {
+  alert("金錢不足！!");
+}
+
+function alertbreada() {
+  alert("麵包不足！!");
+}
+
 function alertFunc() {
   alert("已經在烤了啦！!");
 }
@@ -143,11 +151,7 @@ function buy(a) {
 	
 	
 ma=$("#ma").val();
-total=ma*10;
 
-if(total>a){
-	alert("金錢不足!");
-}
 
 $.ajax({
 		url: 'updatemm.php',
@@ -165,7 +169,7 @@ $.ajax({
 			
 			}
 	});
-
+	
 }
 
 function upgrade() {

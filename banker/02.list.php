@@ -87,8 +87,32 @@ if ($results=mysqli_query($conn,$sql) ) {
 	echo $ma;
 	echo '<br>';
 	
-	//if($a==123)
-	//	shop();
+$vs=(int)$_SESSION['viewstock'];
+$sh=(int)$_SESSION['shop'];
+$qt=(int)$_SESSION['question'];
+	if($vs==1)
+		echo "<script>viewstock();</script> ";
+	if($sh==1)
+		echo "<script>shop();</script> ";
+	if($qt==1)
+		echo "<script>question();</script> ";
+	
+	$mn=(int)$_SESSION['money'];
+	$bd=(int)$_SESSION['bread'];
+	$ou=(int)$_SESSION['ovenup'];
+	if($mn==1){
+		echo "<script>alertmoney();</script> ";
+		$_SESSION['money']=0;
+	}
+	if($bd==1){
+		echo "<script>alertbreada();</script> ";
+		$_SESSION['bread']=0;
+	}
+	if($ou==1){
+		echo "<script>alerto();</script> ";
+		$_SESSION['ovenup']=0;
+	}
+	
 ?>
 
 
@@ -113,3 +137,5 @@ if ($results=mysqli_query($conn,$sql) ) {
 <hr>
 </body>
 </html>
+
+

@@ -20,5 +20,8 @@ $money-=$moneyless;
 $sql = "update stock set  Material = '$ma',money='$money'  where userid=" . $id;
 mysqli_query($conn,$sql) ;
 }
-
+else
+{
+	$_SESSION['money']=1;
+}
 ?>

@@ -1,6 +1,8 @@
 <?php
 require("config.php");
-
+$_SESSION['viewstock']=0;
+$_SESSION['shop']=1;
+$_SESSION['question']=0;
 
 $userid=(int)$_SESSION['uid'];
 

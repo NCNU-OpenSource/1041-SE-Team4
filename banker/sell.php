@@ -42,6 +42,9 @@ if ($results=mysqli_query($conn,$sql) ) {
 	$sql = "update stock set  bread1='$bread1',bread2='$bread2',bread3='$bread3',bread4='$bread4',bread5='$bread5',bread6='$bread6',bread7='$bread7',money='$money'  where userid=" . $id;
 	mysqli_query($conn,$sql) ;
 	}
+	else{
+		$_SESSION['bread']=1;
+	}
 
 
 
