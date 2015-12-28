@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2015 at 10:15 AM
+-- Generation Time: Dec 28, 2015 at 01:40 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -91,7 +91,8 @@ INSERT INTO `lv` (`lv`, `totallv`) VALUES
 (3, 1700),
 (4, 5300),
 (5, 14000),
-(6, 60000);
+(6, 60000),
+(7, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -138,17 +139,18 @@ CREATE TABLE IF NOT EXISTS `stock` (
   `money` int(11) NOT NULL DEFAULT '10',
   `lv` int(11) NOT NULL,
   `EXP` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `stock`
 --
 
 INSERT INTO `stock` (`userid`, `user`, `bread1`, `bread2`, `bread3`, `bread4`, `bread5`, `bread6`, `bread7`, `oven1`, `oven2`, `oven3`, `oven4`, `Material`, `money`, `lv`, `EXP`) VALUES
-(1, 'abcd', 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 190),
-(2, 'sam', 12, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 500, 2, 350),
+(1, 'abcd', 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 10, 1000, 2, 190),
+(2, 'sam', 8, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 127, 888755, 2, 210),
 (3, 'KKBB', 50, 8, 0, 5, 0, 0, 0, 1, 1, 1, 0, 58, 1500, 6, 14040),
-(4, 'aaa', 25, 6, 9, 7, 20, 56, 45, 1, 1, 1, 1, 979, 8000, 27, 60420);
+(4, 'aaa', 94, 9, 9, 7, 20, 56, 45, 1, 1, 1, 1, 904, 8000, 7, 60000),
+(31, 'samm', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 10, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -160,19 +162,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userid` int(11) NOT NULL,
   `username` varchar(20) COLLATE utf8_bin NOT NULL,
   `password` varchar(20) COLLATE utf8_bin NOT NULL,
-  `EXP` int(11) NOT NULL,
-  `lv` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `email` varchar(30) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userid`, `username`, `password`, `EXP`, `lv`) VALUES
-(1, 'abcd', '123456', 50, 1),
-(2, 'sam', '123', 150, 2),
-(3, 'KKBB', '123', 5500, 5),
-(4, 'aaa', '123', 60000, 7);
+INSERT INTO `user` (`userid`, `username`, `password`, `email`) VALUES
+(1, 'abcd', '123456', ''),
+(2, 'sam', '123', 'samchong9494@gmail.com'),
+(3, 'KKBB', '123', ''),
+(4, 'aaa', '123', ''),
+(31, 'samm', '123', 'samchong9494@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -227,12 +229,12 @@ ALTER TABLE `guestbook`
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
