@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $host = 'localhost';
@@ -51,11 +52,51 @@ else
 
 
 ?>
+<script src="jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+function alertbread() {
+  alert("username repeat!");
+}
+function alertbreads() {
+  alert("register success!");
+}
+function kong() {
+  alert("has empty input!");
+}
+</script>
+
+<?php
+if (isset($_SESSION['kong'])){
+	if($_SESSION['kong']==1){
+	echo "<script>kong();</script> ";
+	$_SESSION['kong']=0;
+	}
+
+}
+else{
+	$_SESSION['kong']=0;
+}
+
+if (isset($_SESSION['re'])){//看變數是否存在
+
+
+if($_SESSION['re']==1){
+	echo "<script>alertbread();</script> ";
+	$_SESSION['re']=0;
+}
+if($_SESSION['re']==2){
+	echo "<script>alertbreads();</script> ";
+	$_SESSION['re']=0;
+}
+}
+else
+	$_SESSION['re']=0;
+?>
 <h1>Login Form</h1><hr />
 <form method="post" action="login.php">
 User Name: <input type="text" name="username"><br />
 Password : <input type="password" name="pwd"><br />
 Nick : <input type="text" name="nick"><br />
 <input type="submit">
-<input type="button" value="register" onclick="window.location='register.php'">
+<input type="button" value="register" onclick="window.location='registerkeyin.php'">
 </form>

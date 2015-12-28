@@ -151,8 +151,11 @@ function buy(a) {
 	
 	
 ma=$("#ma").val();
-
-
+var r=/^[0-9]*[1-9][0-9]*$/;
+if(r.test(ma)==false){
+	alert("請輸入正整數");
+}
+else{
 $.ajax({
 		url: 'updatemm.php',
 		dataType: 'html',
@@ -169,7 +172,7 @@ $.ajax({
 			
 			}
 	});
-	
+}
 }
 
 function upgrade() {
