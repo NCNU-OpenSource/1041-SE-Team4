@@ -51,6 +51,32 @@ function alertbread() {
   alert("等級還未夠能烤這個麵包哦!");
 }
 
+function myFunction(i,t,p,e,m,o) {
+	//setTimeout('alertFunc()', 3000);
+	getSecs(t,o);
+    setTimeout("update("+ i + "," + p + "," + e + "," + m + "," + o + ")", t);
+	
+}
+
+function getSecs(t,o) { 
+	if(t>=1000){
+	var mySecs =t/1000; 
+//var mySecs1 = ""+mySecs; //將數字變成文字
+	mySecs1=  mySecs+ "秒"; //算出倒數的時間
+	if(o==1)
+		document.form1.timespent1.value = mySecs; 
+	if(o==2)
+		document.form1.timespent2.value = mySecs; 
+	if(o==3)
+		document.form1.timespent3.value = mySecs; 
+	if(o==4)
+		document.form1.timespent4.value = mySecs; 
+	
+	t=t-1000;
+	setTimeout("getSecs(" + t + "," + o + ")",1000); //每1秒重新執行一次
+	}
+}
+
 function update(i,p,e,m) {
 	
   	DIV='mainDiv';
@@ -223,6 +249,9 @@ $.ajax({
 			
 			}
 	});
+}
+function logout(){
+	window.location.assign("http://localhost/banker/login.php");
 }
 function updatem(ma){
 	$.ajax({

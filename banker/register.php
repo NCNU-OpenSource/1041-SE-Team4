@@ -16,7 +16,7 @@ $em=(string)$_REQUEST['email'];
 echo $un;
 echo $pwd;
 echo $em;
-for($i=1;$i<=40;$i++){
+for($i=1;$i<=50;$i++){
 	$sql="select * from user where userid=" . $i;
 if ($results=mysqli_query($conn,$sql) ) {
 	$rs=mysqli_fetch_array($results);

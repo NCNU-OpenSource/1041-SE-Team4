@@ -186,10 +186,19 @@ $sql="select * from stock where userid=" . $userid;
 if ($results=mysqli_query($conn,$sql) ) {
 	$rs=mysqli_fetch_array($results);
 	$lv=$rs['lv'];
-	
+	$EXP=$rs['EXP'];
 	$money=$rs['money'];
 	$ma=$rs['Material'];
 	}
+	$sql="select * from lv where lv=" . $lv;
+if ($results=mysqli_query($conn,$sql) ) {
+	$rs=mysqli_fetch_array($results);
+	$tl=$rs['totallv'];
+	
+}
+	
+	echo 	$_SESSION['uNAME'] ;
+	
 	echo "等級：";
 	echo $lv;
 	
@@ -197,6 +206,10 @@ if ($results=mysqli_query($conn,$sql) ) {
 	echo $money;
 	echo "   材料包";
 	echo $ma;
+	echo "目前EXP： ";
+	echo $EXP;
+	echo "下一級EXP： ";
+	echo $tl;
 	echo '<br>';
 	
 $vs=(int)$_SESSION['viewstock'];
@@ -230,8 +243,11 @@ $qt=(int)$_SESSION['question'];
 
 <button onclick="viewstock()">viewstock</button>
 <button onclick="question()">question</button>
+<button onclick="logout()">logout</button>
 <input type="button" onclick="home()" value="home">
 <br/>
+<form name=form1><input size=9 name=timespent1><input size=9 name=timespent2><input size=9 name=timespent3><input size=9 name=timespent4></form>
+
 <input type="image" src="1.jpg" id="1" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="2.jpg" id="2" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="3.jpg" id="3" draggable="true" ondragstart="Drag(event)"/>
