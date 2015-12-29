@@ -20,7 +20,9 @@ function myFunction(i,t,p,e,m) {
      setTimeout("update("+ i + "," + p + "," + e + "," + m + ")", t);
 	
 }
-
+function home(){
+	$("#mainDiv").empty();
+}
 function alerto() {
   alert("烤箱已滿！!");
 }

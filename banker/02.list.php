@@ -4,6 +4,118 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
+<style type="text/css">
+        .img{
+            position:relative;
+            left:5%;
+            top:25%;
+            width:1000px;
+            border:solid;
+        }
+        #exp{
+            position:absolute;
+            top:14%;
+            left:8%;
+            
+        }
+        #name{
+            position:absolute;
+            top:36%;
+            left:19%;
+            width:180px;
+        }
+        #money{
+            position:absolute;
+            
+            top:23%;
+            left:39%;
+            
+        }
+        #money-line{
+            position:absolute;
+            
+            top:30%;
+            left:45%;
+            width:140px;
+        }
+        #material{
+            position:absolute;
+            top:25%;
+            left:55%;
+            
+        }
+        #material-line{
+            position:absolute;
+            
+            top:30%;
+            left:61%;
+            width:140px;
+        }
+        .shop{
+            position:absolute;
+            top:25%;
+            left:71%;
+           
+        }
+        .view{
+            position:absolute;
+            top:60%;
+            left:8%;
+           
+        }
+        .ques{
+            position:absolute;
+            top:85%;
+            left:8%;
+           
+        }
+        
+        #oven1{
+            position:absolute;
+            top:48%;
+            left:20%;
+            width:360px;
+            
+            
+            
+        }
+         #oven2{
+            position:absolute;
+            top:48%;
+            left:47%;
+            width:360px;
+            
+            
+            
+        }
+         #oven3{
+            position:absolute;
+            top:78%;
+            left:20%;
+            margin-top:5em;
+            width:360px;
+            
+            
+            
+        }
+         #oven4{
+            position:absolute;
+            top:78%;
+            left:47%;
+            margin-top:5em;
+            width:360px;
+            
+            
+            
+        }
+        #mainDiv{
+            position:absolute;
+            margin-top:10px;
+            
+            
+        }
+   
+    </style>
 </head>
 <script src="jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -118,7 +230,7 @@ $qt=(int)$_SESSION['question'];
 
 <button onclick="viewstock()">viewstock</button>
 <button onclick="question()">question</button>
-<button onclick="shop()">shop</button>
+<input type="button" onclick="home()" value="home">
 <br/>
 <input type="image" src="1.jpg" id="1" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="2.jpg" id="2" draggable="true" ondragstart="Drag(event)"/>
@@ -128,14 +240,31 @@ $qt=(int)$_SESSION['question'];
 <input type="image" src="6.jpg" id="6" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="7.jpg" id="7" draggable="true" ondragstart="Drag(event)"/>
 <div id='abc'>
-<img id="oven1" src="oven.jpg" ondrop="Drop(event,'1')" ondragover="AllowDrop(event)">
-<img id="oven2" src="oven.jpg" ondrop="Drop(event,'2')" ondragover="AllowDrop(event)">
-<img id="oven3" src="oven.jpg" ondrop="Drop(event,'3')" ondragover="AllowDrop(event)">
-<img id="oven4" src="oven.jpg" ondrop="Drop(event,'4')" ondragover="AllowDrop(event)">
+<img src="back.jpg" alt="背景" class="img" >
+    <div id='user'>
+        <img id="exp" src="EXP.png" alt="經驗"  >
+        <img id="money" src="money.png" alt="金錢"  >
+        <img id="material" src="material.png" alt="材料包"  >
+        <img id="name" src="line.png" alt="長條"  >
+        <img id="money-line" src="line.png" alt="長條"  >
+        <img id="material-line" src="line.png" alt="長條"  >
+        <button onclick="shop()" class="shop"><img src="shop.png" class="shop"></button>
+        <button onclick="viewstock()" class="view"><img src="breads.png" class="view"></button>
+        <button onclick="question()" class="ques"><img src="setting.png" class="ques"></button>
+    </div>
+    <div id='bake' >
+        <img id="oven1" src="oven.png" ondrop="Drop(event,'1')" ondragover="AllowDrop(event)" class='oven'>
+        <img id="oven2" src="oven.png" ondrop="Drop(event,'2')" ondragover="AllowDrop(event)" class='oven'>
+        <img id="oven3" src="oven.png" ondrop="Drop(event,'3')" ondragover="AllowDrop(event)" class='oven'>
+        <img id="oven4" src="oven.png" ondrop="Drop(event,'4')" ondragover="AllowDrop(event)" class='oven'>
+    </div>
+    
 </div>
+<div id='mainDiv' >
 </div>
 <hr>
 </body>
 </html>
+
 
 
