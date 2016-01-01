@@ -26,7 +26,12 @@ function home(){
 function alerto() {
   alert("烤箱已滿！!");
 }
-
+function spent(s) {
+  alert("花費了"+s);
+}
+function get(g) {
+  alert("一共獲得"+g);
+}
 function alertmoney() {
   alert("金錢不足！!");
 }

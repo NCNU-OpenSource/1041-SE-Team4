@@ -38,9 +38,14 @@ if ($results=mysqli_query($conn,$sql) ) {
 	$b5m=$b5*750;
 	$b6m=$b6*3000;
 	$b7m=$b7*15000;
+	$total=$b1m+$b2m+$b3m+$b4m+$b5m+$b6m+$b7m;
 	$money=$money+$b1m+$b2m+$b3m+$b4m+$b5m+$b6m+$b7m;
 	$sql = "update stock set  bread1='$bread1',bread2='$bread2',bread3='$bread3',bread4='$bread4',bread5='$bread5',bread6='$bread6',bread7='$bread7',money='$money'  where userid=" . $id;
 	mysqli_query($conn,$sql) ;
+	
+	
+	$_SESSION['sell']=1;
+	$_SESSION['get']=$total;
 	}
 	else{
 		$_SESSION['bread']=1;

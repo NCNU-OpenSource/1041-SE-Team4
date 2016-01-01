@@ -238,6 +238,24 @@ $qt=(int)$_SESSION['question'];
 		$_SESSION['ovenup']=0;
 	}
 	
+	$spent=$_SESSION['spent'];
+	$get=$_SESSION['get'];
+	if($_SESSION['um']==1){
+		echo "<script>spent($spent);</script> ";
+		$_SESSION['um']=0;
+		$_SESSION['spent']=0;
+	}
+	if($_SESSION['ug']==1){
+		echo "<script>spent($spent);</script> ";
+		$_SESSION['ug']=0;
+		$_SESSION['spent']=0;
+	}
+	if($_SESSION['sell']==1){
+		echo "<script>get($get);</script> ";
+		$_SESSION['sell']=0;
+		$_SESSION['get']=0;
+	}
+	
 ?>
 
 
