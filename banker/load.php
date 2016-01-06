@@ -12,78 +12,79 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css" rel="stylesheet">  
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css" rel="stylesheet">  
+<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>  
 </head>
 <script src="jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+var bs=new Audio();
+bs.src="1.mp3";
+var ding=new Audio();
+ding.src="ding.mp3";
+
+
+
 function myFunction(i,t,p,e,m) {
 	//setTimeout('alertFunc()', 3000);
      setTimeout("update("+ i + "," + p + "," + e + "," + m + ")", t);
 	
 }
+
 function home(){
+	bs.play();
+	
 	$("#mainDiv").empty();
+	$.ajax({
+		url: 'abcd.php',
+		dataType: 'html',
+		type: 'POST',
+		
+		error: function(xhr) {
+			alert(xhr);
+			
+			},
+		success: function(response) {
+//			$('#'+DIV).html(response); //set the html content of the object msg
+			
+			
+			
+			}
+	});
+	
 }
+
 function alerto() {
-  alert("烤箱已滿！!");
+  alertify.error("烤箱已滿！!");
 }
-function spent(s) {
-  alert("花費了"+s);
-}
-function get(g) {
-  alert("一共獲得"+g);
-}
+
 function alertmoney() {
-  alert("金錢不足！!");
+  alertify.error("金錢不足！!");
 }
 
 function alertbreada() {
-  alert("麵包不足！!");
+  alertify.error("麵包不足！!");
 }
 
 function alertFunc() {
-  alert("已經在烤了啦！!");
+  alertify.error("已經在烤了啦！!");
 }
 
 function alertFuncb() {
-  alert("材料包不足!");
+  alertify.error("材料包不足!");
 }
 
 function alertoven() {
-  alert("此烤箱未擁有!");
+  alertify.alert("此烤箱未擁有!");
 }
 
 function alertbread() {
-  alert("等級還未夠能烤這個麵包哦!");
-}
-
-function myFunction(i,t,p,e,m,o) {
-	//setTimeout('alertFunc()', 3000);
-	getSecs(t,o);
-    setTimeout("update("+ i + "," + p + "," + e + "," + m + "," + o + ")", t);
-	
-}
-
-function getSecs(t,o) { 
-	if(t>=1000){
-	var mySecs =t/1000; 
-//var mySecs1 = ""+mySecs; //將數字變成文字
-	mySecs1=  mySecs+ "秒"; //算出倒數的時間
-	if(o==1)
-		document.form1.timespent1.value = mySecs; 
-	if(o==2)
-		document.form1.timespent2.value = mySecs; 
-	if(o==3)
-		document.form1.timespent3.value = mySecs; 
-	if(o==4)
-		document.form1.timespent4.value = mySecs; 
-	
-	t=t-1000;
-	setTimeout("getSecs(" + t + "," + o + ")",1000); //每1秒重新執行一次
-	}
+  alertify.alert("等級還未夠能烤這個麵包哦!");
 }
 
 function update(i,p,e,m) {
-	
+	ding.play();
   	DIV='mainDiv';
 $.ajax({
 		url: '01-update.php',
@@ -133,6 +134,7 @@ $.ajax({
 }
 
 function viewstock() {
+	bs.play();
 	DIV='mainDiv';
 $.ajax({
 		url: '01-viewstock.php',
@@ -149,6 +151,7 @@ $.ajax({
 }
 
 function question() {
+	bs.play();
 	DIV='mainDiv';
 $.ajax({
 		url: 'question.php',
@@ -165,6 +168,7 @@ $.ajax({
 }
 
 function shop() {
+	bs.play();
 	DIV='mainDiv';
 $.ajax({
 		url: 'shop.php',
@@ -181,7 +185,7 @@ $.ajax({
 }
 
 function buy(a) {
-	
+bs.play();	
 	
 ma=$("#ma").val();
 var r=/^[0-9]*[1-9][0-9]*$/;
@@ -210,7 +214,7 @@ $.ajax({
 
 function upgrade() {
 
-
+bs.play();
 $.ajax({
 		url: 'upgrade.php',
 		dataType: 'html',
@@ -230,6 +234,7 @@ $.ajax({
 }
 
 function sell() {
+	bs.play();
 b1=$("#b1").val();
 b2=$("#b2").val();
 b3=$("#b3").val();
@@ -238,6 +243,12 @@ b5=$("#b5").val();
 b6=$("#b6").val();
 b7=$("#b7").val();
 
+var r=/^[0-9]*[1-9][0-9]*$/;
+if(r.test(b1)==false && r.test(b2)==false && r.test(b4)==false && r.test(b5)==false && r.test(b6)==false && r.test(b7)==false && r.test(b3)==false){
+	alert("請輸入正整數");
+}
+
+else{
 $.ajax({
 		url: 'sell.php',
 		dataType: 'html',
@@ -255,8 +266,6 @@ $.ajax({
 			}
 	});
 }
-function logout(){
-	window.location.assign("http://localhost/banker/login.php");
 }
 function updatem(ma){
 	$.ajax({
@@ -282,7 +291,10 @@ function updatem(ma){
 	
 ?>
 <body>
-
+<body bgcolor="#f9e6a2">
+<body onload="alertify.alert('歡迎來到麵包坊   來烤個麵包吧')"  ">
+<audio src="bgm1.mp3" autoplay="true" loop="true" 
+hidden="true"></audio> 
 
 
 <div id='div001'></div>

@@ -4,75 +4,87 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>無標題文件</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.core.css" rel="stylesheet">  
+<link href="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.default.css" rel="stylesheet">  
+<script src="//cdnjs.cloudflare.com/ajax/libs/alertify.js/0.3.10/alertify.min.js"></script>  
 <style type="text/css">
         .img{
             position:relative;
-            left:5%;
-            top:25%;
+            left:1.8cm;
+            top:1cm;
+        }
+        .lock{
+            position:absolute;
+            top:31%;
+            right:40.2%;
+            
+        }
+        
+        #img{
             width:1000px;
-            border:solid;
         }
-        #exp{
-            position:absolute;
-            top:14%;
-            left:8%;
-            
-        }
-        #name{
-            position:absolute;
-            top:36%;
-            left:19%;
-            width:180px;
-        }
-        #money{
-            position:absolute;
-            
+       .breaddr{
+           position:absolute;
             top:23%;
-            left:39%;
-            
-        }
-        #money-line{
+            left:13%;
+       }
+       #usname{
             position:absolute;
-            
-            top:30%;
-            left:45%;
-            width:140px;
+            top:20.5%;
+            left:20.5%;
+           font-size:25px;
         }
-        #material{
+        #level{
             position:absolute;
-            top:25%;
-            left:55%;
-            
+            top:14.5%;
+            left:13.5%;
+           font-size:50px;
         }
-        #material-line{
+         #gold{
             position:absolute;
-            
-            top:30%;
-            left:61%;
-            width:140px;
+            top:16.3%;
+            left:50%;
+           font-size:20px;
         }
-        .shop{
+         #mat{
             position:absolute;
-            top:25%;
+            top:16.3%;
+            left:64%;
+           font-size:20px;
+        }
+        #sho{
+            position:absolute;
+            top:12%;
             left:71%;
            
         }
-        .view{
+        #log{
             position:absolute;
-            top:60%;
+            top:88%;
+            left:6.5%;
+           
+        }
+        #view{
+            position:absolute;
+            top:40%;
             left:8%;
            
         }
-        .ques{
+        #ques{
             position:absolute;
-            top:85%;
+            top:65%;
             left:8%;
            
         }
-        
+        #ex{
+            position:absolute;
+            top:14.5%;
+            left:21.5%;
+           font-size:20px;
+        }
         #oven1{
             position:absolute;
-            top:48%;
+            top:37%;
             left:20%;
             width:360px;
             
@@ -81,38 +93,27 @@
         }
          #oven2{
             position:absolute;
-            top:48%;
+            top:37%;
             left:47%;
             width:360px;
-            
-            
-            
         }
          #oven3{
             position:absolute;
-            top:78%;
+            top:65%;
             left:20%;
             margin-top:5em;
             width:360px;
-            
-            
-            
         }
          #oven4{
             position:absolute;
-            top:78%;
+            top:65%;
             left:47%;
             margin-top:5em;
             width:360px;
-            
-            
-            
         }
         #mainDiv{
             position:absolute;
             margin-top:10px;
-            
-            
         }
    
     </style>
@@ -158,6 +159,7 @@ $.ajax({
 }
 
 function viewstock() {
+	bs.play();
 	DIV='mainDiv';
 $.ajax({
 		url: '01-viewstock.php',
@@ -181,6 +183,7 @@ $.ajax({
 <?php
 	require("config.php");
 	$userid=(int)$_SESSION['uid'];
+    $username=$_SESSION['uNAME'];
 	//$a=(int)$_REQUEST['a'];
 $sql="select * from stock where userid=" . $userid;
 if ($results=mysqli_query($conn,$sql) ) {
@@ -189,28 +192,18 @@ if ($results=mysqli_query($conn,$sql) ) {
 	$EXP=$rs['EXP'];
 	$money=$rs['money'];
 	$ma=$rs['Material'];
+    $oven1lock=$rs['oven1'];
+	$oven2lock=$rs['oven2'];
+	$oven3lock=$rs['oven3'];
+	$oven4lock=$rs['oven4'];
 	}
-	$sql="select * from lv where lv=" . $lv;
+    $sql="select * from lv where lv=" . $lv;
 if ($results=mysqli_query($conn,$sql) ) {
-	$rs=mysqli_fetch_array($results);
-	$tl=$rs['totallv'];
-	
+    $rs=mysqli_fetch_array($results);
+    $tl=$rs['totallv'];
 }
+$nextlvexp=$tl-$EXP;
 	
-	echo 	$_SESSION['uNAME'] ;
-	
-	echo "等級：";
-	echo $lv;
-	
-	echo "   金錢:";
-	echo $money;
-	echo "   材料包";
-	echo $ma;
-	echo "目前EXP： ";
-	echo $EXP;
-	echo "下一級EXP： ";
-	echo $tl;
-	echo '<br>';
 	
 $vs=(int)$_SESSION['viewstock'];
 $sh=(int)$_SESSION['shop'];
@@ -238,65 +231,93 @@ $qt=(int)$_SESSION['question'];
 		$_SESSION['ovenup']=0;
 	}
 	
-	$spent=$_SESSION['spent'];
-	$get=$_SESSION['get'];
-	if($_SESSION['um']==1){
-		echo "<script>spent($spent);</script> ";
-		$_SESSION['um']=0;
-		$_SESSION['spent']=0;
-	}
-	if($_SESSION['ug']==1){
-		echo "<script>spent($spent);</script> ";
-		$_SESSION['ug']=0;
-		$_SESSION['spent']=0;
-	}
-	if($_SESSION['sell']==1){
-		echo "<script>get($get);</script> ";
-		$_SESSION['sell']=0;
-		$_SESSION['get']=0;
-	}
+	
 	
 ?>
 
 
-<button onclick="viewstock()">viewstock</button>
-<button onclick="question()">question</button>
-<button onclick="logout()">logout</button>
-<input type="button" onclick="home()" value="home">
-<br/>
-<form name=form1><input size=9 name=timespent1><input size=9 name=timespent2><input size=9 name=timespent3><input size=9 name=timespent4></form>
 
-<input type="image" src="1.jpg" id="1" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="2.jpg" id="2" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="3.jpg" id="3" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="4.jpg" id="4" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="5.jpg" id="5" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="6.jpg" id="6" draggable="true" ondragstart="Drag(event)"/>
-<input type="image" src="7.jpg" id="7" draggable="true" ondragstart="Drag(event)"/>
+
+
+
+
 <div id='abc'>
-<img src="back.jpg" alt="背景" class="img" >
+<img src="B.png" alt="背景" class="img" id="img" >
+<a href="login.php" class='abc' id="log"><input  type="image"  name="登出"  id="logout"  img src="logout.png"   style="width:150px;"></a>
+<div class="breaddr">
+ <input type="image" src="1.png" id="1" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="2.png" id="2" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="3.png" id="3" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="4.png" id="4" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="5.png" id="5" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="6.png" id="6" class="img" draggable="true" ondragstart="Drag(event)"/>
+<input type="image" src="7.png" id="7" class="img" draggable="true" ondragstart="Drag(event)"/>
+
+            
+</div>
+<div class="lock">
+    <?php
+    for($i=$lv;$i<7;$i++){
+    ?>
+    <img src="LOCK.png"   id="8"  style="width:40px;margin-left:40px;">
+    <?php }?>
+</div>
     <div id='user'>
-        <img id="exp" src="EXP.png" alt="經驗"  >
-        <img id="money" src="money.png" alt="金錢"  >
-        <img id="material" src="material.png" alt="材料包"  >
-        <img id="name" src="line.png" alt="長條"  >
-        <img id="money-line" src="line.png" alt="長條"  >
-        <img id="material-line" src="line.png" alt="長條"  >
-        <button onclick="shop()" class="shop"><img src="shop.png" class="shop"></button>
-        <button onclick="viewstock()" class="view"><img src="breads.png" class="view"></button>
-        <button onclick="question()" class="ques"><img src="setting.png" class="ques"></button>
+  
+        <a onmouseover="document.s.src='shop2.png'"
+    onmouseout="document.s.src='shop.png'"><input  type="image"  name="s"  id="sho"  img src="shop.png"  onClick="shop()" ></a>
+        <input  type="image"  name="資訊"  id="view"  img src="breads.png"  onClick="viewstock()" >
+        <input  type="image"  name="問題"  id="ques"  img src="setting.png"  onClick="question()" >
+        
+        <span class="img" id="usname" style="color:yellow;"><?php echo $username; ?></span>
+        <span class="img" id="level" style="color:black;"><?php echo $lv; ?></span>
+        <span class="img" id="ex" >
+        <?php
+        if($lv<7){ 
+            echo $nextlvexp;
+}
+        else {
+            echo "Max ";
+} 
+        ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php
+        if($lv<7){ 
+            echo $tl;
+}
+        else {
+            echo " Max";
+} 
+        ?>
+        </span>
+        <span class="img" id="gold" style="color:white;"><?php echo $money; ?></span>
+        <span class="img" id="mat" style="color:white;"><?php echo $ma; ?></span>
     </div>
     <div id='bake' >
         <img id="oven1" src="oven.png" ondrop="Drop(event,'1')" ondragover="AllowDrop(event)" class='oven'>
         <img id="oven2" src="oven.png" ondrop="Drop(event,'2')" ondragover="AllowDrop(event)" class='oven'>
-        <img id="oven3" src="oven.png" ondrop="Drop(event,'3')" ondragover="AllowDrop(event)" class='oven'>
+         <img id="oven3" src="oven.png" ondrop="Drop(event,'3')" ondragover="AllowDrop(event)" class='oven'>
         <img id="oven4" src="oven.png" ondrop="Drop(event,'4')" ondragover="AllowDrop(event)" class='oven'>
+        <?php 
+            if($oven2lock==0){
+        ?>
+        <img src="LOCK.png" class="oven" id="oven2" style="width:100px; margin-left:130px;margin-top:80px;">
+            <?php }?>
+         <?php
+            if($oven3lock==0){
+        ?>
+        <img src="LOCK.png"  class="oven" id="oven3" style="width:100px;margin-left:130px;margin-top:170px;">
+        <?php }?>
+         <?php
+            if($oven4lock==0){
+        ?>
+        <img src="LOCK.png"  class="oven" id="oven4" style="width:100px;margin-left:130px;margin-top:170px;">
+        <?php }?>
     </div>
     
 </div>
 <div id='mainDiv' >
 </div>
-<hr>
 </body>
 </html>
 

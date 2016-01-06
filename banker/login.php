@@ -40,16 +40,6 @@ else
 				$_SESSION['bread']=0;
 				$_SESSION['ovenup']=0;
 				
-				$_SESSION['get']=0;
-				$_SESSION['spent']=0;
-				
-				$_SESSION['um']=0;
-				$_SESSION['ug']=0;
-				$_SESSION['sell']=0;
-				
-				
-				
-				
 				$_SESSION['lv'] = $row['lv'];
 				
 				header("Location: load.php");

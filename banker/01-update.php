@@ -112,4 +112,6 @@ if($exp>=$tl)
 				$_SESSION['oven[3]']=0;
 			if($ovenid==4)
 				$_SESSION['oven[4]']=0;
+			
+			
 ?>

@@ -21,23 +21,49 @@ if ($results=mysqli_query($conn,$sql) ) {
 	}
 }
 ?>
-<table border=1>
-<tr><td></td><td>所需等級</td><td>所需時間</td><td>所需材包</td><td>賣取金錢</td><td>賣取經驗</td><td>目前擁有</td></tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<style type="text/css">
+.stock{
+    position:absolute;
+    left:5%;
+    top:25%;
+            
+    margin-top:-580px;
+    margin-left:210px;
+}
+#stock{
+    width:840px;
+}
+#howmanyb{
+    position:absolute;
+    font-size:24px;
+    top:-312px;
+    margin-top:-100px;
+    margin-left:970px;
+   
+}
+ </style>
+</head>
+
+<body>
+<img src="stockP.jpg" alt="背景" class="stock" id="stock">
+<input  type="image"  name="取消"  id="cancel"  img src="X.png"  onClick="home()" value="home" class="stock">
+<span id="howmanyb">
 <?php
 for($i=1;$i<8;$i++){
 $sql="select * from information where breadid=" . $i;
 if ($results=mysqli_query($conn,$sql) ) {
-	$rs=mysqli_fetch_array($results);
-	
-	
-	
+$rs=mysqli_fetch_array($results);
+
 ?>
 
 
-<tr><td><?php echo  $rs['breadname'];?></td><td><?php echo  $rs['LV'];?></td><td><?php echo  $rs['time'];?></td><td><?php echo  $rs['Material'];?></td><td><?php echo  $rs['price'];?></td><td><?php echo  $rs['exp'];?></td><td><?php echo  $howmanya[$i];?></td></tr>
+<?php echo  $howmanya[$i];echo '<br><br>';?>
 	
-
-
 <?php
 }
 
@@ -45,4 +71,8 @@ if ($results=mysqli_query($conn,$sql) ) {
 
 }
 ?>
-</table>
+
+</span>
+
+</body>
+</html>
