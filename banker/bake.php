@@ -59,7 +59,8 @@ if($ovenava==1){
 <script type="text/javascript">
 function myFunction(i,t,p,e,m,o) {
 	//setTimeout('alertFunc()', 3000);
-     setTimeout("update("+ i + "," + p + "," + e + "," + m + "," + o + ")", t);
+	getSecs(t,o);
+    setTimeout("update("+ i + "," + p + "," + e + "," + m + "," + o + ")", t);
 	
 }
 

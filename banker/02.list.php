@@ -245,6 +245,8 @@ $qt=(int)$_SESSION['question'];
 <img src="B.png" alt="背景" class="img" id="img" >
 <a href="login.php" class='abc' id="log"><input  type="image"  name="登出"  id="logout"  img src="logout.png"   style="width:150px;"></a>
 <div class="breaddr">
+
+<form name=form1><input size=9 name=timespent1><input size=9 name=timespent2><input size=9 name=timespent3><input size=9 name=timespent4></form>
  <input type="image" src="1.png" id="1" class="img" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="2.png" id="2" class="img" draggable="true" ondragstart="Drag(event)"/>
 <input type="image" src="3.png" id="3" class="img" draggable="true" ondragstart="Drag(event)"/>
