@@ -25,25 +25,24 @@ if ($results=mysqli_query($conn,$sql) ) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+　<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>無標題文件</title>
 <style type="text/css">
 .stock{
     position:absolute;
-    left:5%;
-    top:25%;
+    left:18%;
+    top:40%;
             
-    margin-top:-580px;
-    margin-left:210px;
+    
 }
 #stock{
-    width:840px;
+    width:auto;
 }
 #howmanyb{
     position:absolute;
-    font-size:24px;
-    top:-312px;
-    margin-top:-100px;
-    margin-left:970px;
+    font-size:1.5em;
+    top:64.5%;
+    left:74.5%;
    
 }
  </style>
@@ -52,7 +51,7 @@ if ($results=mysqli_query($conn,$sql) ) {
 <body>
 <img src="stockP.jpg" alt="背景" class="stock" id="stock">
 <input  type="image"  name="取消"  id="cancel"  img src="X.png"  onClick="home()" value="home" class="stock">
-<span id="howmanyb">
+<span id="howmanyb" class="stock">
 <?php
 for($i=1;$i<8;$i++){
 $sql="select * from information where breadid=" . $i;

@@ -31,33 +31,33 @@ $nextlvexp=$tl-$EXP;
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+　<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>無標題文件</title>
 <style type="text/css">
         .qb{
             position:absolute;
-            left:5%;
-            top:25%;
+            left:18%;
+            top:40%;
             
-            margin-top:-600px;
-            margin-left:240px;
+            
         }
         #qb{
-            width:700px;
+            width:55%;
         }
         #lv{
             position:absolute;
+            left:54%;
+            top:45%;
+            font-size:3em;
             
-            font-size:50px;
-            margin-top:-572px;
-            margin-left:710px;
        }
 
        #nextexp{
             position:absolute;
-            
-            font-size:50px;
-            margin-top:-525px;
-            margin-left:780px;
+            left:61%;
+            top:52%;
+            font-size:3em;
+           
        }
 
    

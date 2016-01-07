@@ -61,162 +61,57 @@ if($oven4ava==1){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+　<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>無標題文件</title>
 <style type="text/css">
-        .shop{
+        .buyb{
             position:absolute;
-            left:5%;
-            top:25%;
+            left:18%;
+            top:33%;
             
-            margin-top:-640px;
-            margin-left:240px;
+            
         }
         #back{
-            width:800px;
+            width:62%;
         }
         #ma{
             position:absolute;
-            font-size:20px;
-            margin-top:-390px;
-            margin-left:320px;
-            height:20px;
-            width:100px;
+            font-size:2em;
+            top:65%;
+            left:37.7%;
+            height:0.8em;
+            width:2.5em;
        }
 
        #buyit{
             position:absolute;
-            font-size:20px;
-            margin-top:-390px;
-            margin-left:450px;
+            font-size:1.6em;
+            left:37.6%;
+            top:72%;
             
        }
        #up{
            position:absolute;
-            font-size:30px;
-            margin-top:-270px;
-            margin-left:400px;
+           left:30%;
+           top:94%;
+           
+            font-size:2em
+            
        }
-      #br1{
+       .sell{
            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-315px;
-            margin-left:680px;
-          white-space: nowrap;
+           font-size:1.4em;
+           top:58%;
+           left:52%;
+           
        }
-        #br2{
-            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-260px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-        #br3{
-           position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-205px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-        #br4{
-            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-155px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-        #br5{
-            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-105px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-        #br6{
-            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:-50px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-        #br7{
-            position:absolute;
-           font-size:20px;
-           top:-150px;
-           margin-top:5px;
-            margin-left:680px;
-          white-space: nowrap;
-       }
-       #a1{
-           position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-315px;
-            margin-left:850px;
-          white-space: nowrap;
-         
-       }
-       #a2{
-            position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-260px;
-            margin-left:850px;
-          white-space: nowrap;
-         
-       }
-       #a3{
-           position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-205px;
-            margin-left:850px;
-          white-space: nowrap;
-          
-       }
-       #a4{
-            position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-155px;
-            margin-left:850px;
-          white-space: nowrap;
-       }
-       #a5{
-           position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-105px;
-            margin-left:850px;
-          white-space: nowrap;
-       }
-       #a6{
-            position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:-50px;
-            margin-left:850px;
-          white-space: nowrap;
-       }
-       #a7{
-            position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:5px;
-            margin-left:850px;
-          white-space: nowrap;
-       }
+      
+     
        #sellout{
            position:absolute;
-           font-size:25px;
-           top:-150px;
-           margin-top:50px;
-            margin-left:900px;
+           font-size:1.4em;
+           top:102%;
+           
           
        }
     </style>
@@ -226,10 +121,10 @@ if($oven4ava==1){
 <body>
 
 <div class="buy">
-<img src="shopP.jpg" alt="背景" id="back" class="shop">
-<input type="text" name="ma" id="ma" class="shop">
-<input type="button" onclick="buy(<?php echo $money?>)" value="buy" id="buyit" class="shop" >
-<input type="button" onclick="upgrade()" value="upgrade" id="up" class="shop">
+<img src="shopP.jpg" alt="背景" id="back" class="buyb">
+<input type="text" name="ma" id="ma" class="buyb">
+<input type="button" onclick="buy(<?php echo $money?>)" value="buy" id="buyit" class="buyb" >
+<input type="button" onclick="upgrade()" value="upgrade" id="up" class="buyb">
 
 
 
@@ -237,16 +132,16 @@ if($oven4ava==1){
 
 <div class="sell">
 
-<span class="sell" id="br1"><?php echo " X ".$howmanya[1];?></span><span id="a1"><?php echo $howmuch[1]."元X ";?><input type="text" class="sell" name="b1" id="b1" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br2"><?php echo " X ".$howmanya[2] ;?></span><span id="a2"><?php echo $howmuch[2]."元X ";?><input type="text" class="sell" name="b2" id="b2" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br3"><?php echo " X ".$howmanya[3] ;?></span><span id="a3"><?php echo $howmuch[3]."元X ";?><input type="text" class="sell" name="b3" id="b3" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br4"><?php echo " X ".$howmanya[4] ;?></span><span id="a4"><?php echo $howmuch[4]."元X ";?><input type="text" class="sell" name="b4" id="b4" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br5"><?php echo " X ".$howmanya[5] ;?></span><span id="a5"><?php echo $howmuch[5]."元X ";?><input type="text" class="sell" name="b5" id="b5" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br6"><?php echo " X ".$howmanya[6] ;?></span><span id="a6"><?php echo $howmuch[6]."元X ";?><input type="text" class="sell" name="b6" id="b6" value="0" style="width:60px;height:25px;"></span>
-<span class="sell" id="br7"><?php echo " X ".$howmanya[7] ;?></span><span id="a7"><?php echo $howmuch[7]."元X ";?><input type="text" class="sell" name="b7" id="b7" value="0" style="width:60px;height:25px;"></span>
+<span  id="br1"><?php echo " X ".$howmanya[1];?></span><span id="a1" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[1]."元X ";?><input type="text"  name="b1" id="b1" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br2"><?php echo " X ".$howmanya[2] ;?></span><span id="a2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[2]."元X ";?><input type="text"  name="b2" id="b2" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br3"><?php echo " X ".$howmanya[3] ;?></span><span id="a3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[3]."元X ";?><input type="text"  name="b3" id="b3" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br4"><?php echo " X ".$howmanya[4] ;?></span><span id="a4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[4]."元X ";?><input type="text"  name="b4" id="b4" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br5"><?php echo " X ".$howmanya[5] ;?></span><span id="a5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[5]."元X ";?><input type="text"  name="b5" id="b5" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br6"><?php echo " X ".$howmanya[6] ;?></span><span id="a6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[6]."元X ";?><input type="text"  name="b6" id="b6" value="0" style="width:5em;height:2em;"></span><br><br>
+<span  id="br7"><?php echo " X ".$howmanya[7] ;?></span><span id="a7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $howmuch[7]."元X ";?><input type="text"  name="b7" id="b7" value="0" style="width:5em;height:2em;"></span>
 <input type="button" onclick="sell()" value="sell" class="sell" id="sellout" >
 </div>
-<input  type="image"  name="取消"  id="cancel"  img src="X.png"  onClick="home()" value="home" class="shop">
+<input  type="image"  name="取消"  id="cancel"  img src="X.png"  onClick="home()" value="home" class="buyb">
 
 
 </body>
